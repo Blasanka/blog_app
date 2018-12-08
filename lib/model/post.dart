@@ -34,6 +34,17 @@ class Post {
     this.imageUrl,
     this.url
   });
+
+  factory Post.fromJson(Map<String, dynamic> json) {
+    if (json == null)
+      return null;
+
+    return Post(
+      tags: json['tags'] ?? '[tags]',
+      title: json['title'] ?? '[title]',
+      subtitle: json['subtitle'] ?? '[subtitle]',
+    );
+  }
 }
 
 final posts = [

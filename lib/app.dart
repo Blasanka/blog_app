@@ -1,3 +1,4 @@
+//import 'package:blog_app/json_parsing.dart';
 import 'package:flutter/material.dart';
 import 'model/post.dart';
 import 'screens/singlepost_screen.dart';
@@ -27,8 +28,14 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+
+    final i = 1;
+    List<String> _generateList() {
+      return List<String>.generate(20, (i) => "Hello $i");
+    }
     return ListView(
-      children: _posts.map(_buildPost).toList(),
+      children: _generateList().map((v) => Text(v)).toList(),//_posts.map(_buildPost).toList(),
     );
   }
 
@@ -37,10 +44,11 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.all(14.0),
       child: ListTile(
         title: Text(
-          post.title,
+          "",//post.title,
           style: TextStyle(fontSize: 22.0)),
         subtitle: Text(
-          post.subtitle,
+          "f"//post.subtitle,
+          // getPosts(),
         ),
         onTap: ()  {
           Navigator.push(
