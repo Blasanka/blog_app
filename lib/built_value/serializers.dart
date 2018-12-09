@@ -23,6 +23,9 @@ part 'serializers.g.dart';
 /// You usually only need to do this once per project.
 @SerializersFor(const [
   Post,
+  Comment,
+  Tag,
+  Paragraph,
 ])
 Serializers serializers = _$serializers;
 

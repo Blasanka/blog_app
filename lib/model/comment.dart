@@ -1,13 +1,24 @@
-class Comment {
-  final String text;
-  final String by;
-  final DateTime createdOn;
-  final int likes;
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
-  const Comment({
-    this.text,
-    this.by,
-    this.createdOn,
-    this.likes = 0
-  });
+part 'comment.g.dart';
+
+abstract class Comment implements Built<Comment, CommentBuilder> {
+  static Serializer<Comment> get serializer => _$commentSerializer;
+
+  @nullable
+  String get text;
+
+  @nullable
+  String get by;
+
+  @nullable
+  DateTime get createdOn;
+
+  @nullable
+  int get likes;
+
+  Comment._();
+
+  factory Comment([updates (CommentBuilder b)]) = _$Comment;
 }

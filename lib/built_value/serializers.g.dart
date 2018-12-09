@@ -20,7 +20,8 @@ part of serializers;
 // ignore_for_file: test_types_in_equals
 
 Serializers _$serializers = (new Serializers().toBuilder()
-      ..add(Post.serializer)
+  ..add(Comment.serializer)..add(Paragraph.serializer)
+      ..add(Post.serializer)..add(Tag.serializer)
   ..addBuilderFactory(
       const FullType(BuiltList, const [const FullType(Paragraph)]),
           () => new ListBuilder<Paragraph>())..addBuilderFactory(

@@ -1,4 +1,6 @@
-
+import 'package:blog_app/built_value/json_parsing.dart';
+import 'package:http/http.dart' as http;
+import 'package:test/test.dart';
 
 void main() {
 //  test("parses posts.json", () {
@@ -7,12 +9,11 @@ void main() {
 //    expect(parsePost(jsonString).id, "post1");
 //  });
 //
-//  test('posts myBlog repo', () async {
-//    final url = "https://blasanka.github.io/myBlog/data/testing.json";
-//    final res = await http.get(url);
-//    if (res.statusCode == 200) {
-//      expect(parsePost(res.body)[0].id, "post1");
-//      expect(parsePost(res.body)[1].id, "post2");
-//    }
-//  });
+  test('posts myBlog repo', () async {
+    final url = "https://blasanka.github.io/myBlog/data/posts.json";
+    final res = await http.get(url);
+    if (res.statusCode == 200) {
+      expect(parsePosts(res.body)[0].id, "post1");
+    }
+  });
 }

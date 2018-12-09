@@ -349,7 +349,6 @@ class PostBuilder implements Builder<Post, PostBuilder> {
   set previewText(String previewText) => _$this._previewText = previewText;
 
   ListBuilder<Paragraph> _paragraphs;
-
   ListBuilder<Paragraph> get paragraphs =>
       _$this._paragraphs ??= new ListBuilder<Paragraph>();
 
@@ -373,7 +372,6 @@ class PostBuilder implements Builder<Post, PostBuilder> {
   set likes(int likes) => _$this._likes = likes;
 
   ListBuilder<Comment> _comments;
-
   ListBuilder<Comment> get comments =>
       _$this._comments ??= new ListBuilder<Comment>();
 
@@ -384,7 +382,6 @@ class PostBuilder implements Builder<Post, PostBuilder> {
   set category(String category) => _$this._category = category;
 
   ListBuilder<Tag> _tags;
-
   ListBuilder<Tag> get tags => _$this._tags ??= new ListBuilder<Tag>();
 
   set tags (ListBuilder<Tag> tags) => _$this._tags = tags;

@@ -34,12 +34,11 @@ class _HomePageState extends State<HomePage> {
         future: getPosts(),
         builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ListView(
-                  children: snapshot.data.map(_buildPost).toList()
-              ),
-            );
+            if (snapshot.hasData) {
+              return ListView(children: snapshot.data.map(_buildPost).toList());
+            } else {
+              return Center(child: Text("No posts found!"));
+            }
           } else {
             return Center(child: CircularProgressIndicator());
           }
@@ -49,7 +48,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildPost(Post post) {
     return Padding(
-      padding: const EdgeInsets.all(14.0),
+      padding: const EdgeInsets.all(16.0),
       child: ListTile( //TODO: create an ExpansionTile
         title: Text(
             post.title,

@@ -1,9 +1,18 @@
-class Tag {
-  final String name;
-  final String url;
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
-  const Tag({
-    this.name,
-    this.url
-  });
+part 'tag.g.dart';
+
+abstract class Tag implements Built<Tag, TagBuilder> {
+  static Serializer<Tag> get serializer => _$tagSerializer;
+
+  @nullable
+  String get name;
+
+  @nullable
+  String get url;
+
+  Tag._();
+
+  factory Tag([updates (TagBuilder b)]) = _$Tag;
 }

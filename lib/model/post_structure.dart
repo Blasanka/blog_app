@@ -45,60 +45,60 @@ class Post {
   }
 }
 
-final posts = [
-  new Post(
-      id: 1,
-      title: 'Flutter crash course',
-      subtitle: 'The complete guide to Flutter',
-      previewText:
-          'This is a course I have developed for beginners to learn flutter basics to advance with Firebase',
-      paragraphs: <Paragraph>[
-        new Paragraph(
-            text:
-                "Hello everyone, let's learn awesome Flutter. As a introduction to this course ...."),
-        new Paragraph(
-            text:
-                "Okay, what is flutter? it is a lightweight UI framework develop to build cross platform mobile application using single codebase...",
-            imageUrl: 'assets/images/flutter/owel.png')
-      ],
-      createdOn: DateTime.now(),
-      author: 'Asanka B.L.',
-      writtenBy: 'Asanka B.L.',
-      comments: <Comment>[],
-      category: 'Mobile App development',
-      tags: <Tag>[
-        new Tag(name: 'Flutter', url: 'posts/flutter/'),
-        new Tag(name: 'App development', url: 'posts/development/'),
-        new Tag(name: 'Mobile', url: 'posts/mobile/'),
-        new Tag(name: 'Dart', url: 'posts/dart/'),
-      ],
-      imageUrl: 'assets/images/flutter.png',
-      url: 'www.google.com' //posts/flutter/flutter_crash_course/
-      ),
-  new Post(
-      id: 2,
-      title: 'AngularJS is what?',
-      subtitle: 'What is AngularJS and why do we still using it',
-      previewText:
-          'In this blogpost I have talked about, why people still use AngularJS rather than Angular2+',
-      paragraphs: <Paragraph>[
-        new Paragraph(
-            text:
-                "Hello devs, do you guys have hard time of understanding what the hack is going on??"),
-        new Paragraph(
-            text: "Okay, This is how I tried to help you guys understand..",
-            imageUrl: 'assets/images/angularjs/conf.png')
-      ],
-      createdOn: DateTime.now(),
-      author: 'Asanka B.L.',
-      writtenBy: 'Asanka B.L.',
-      comments: <Comment>[],
-      category: 'Web Development',
-      tags: <Tag>[
-        new Tag(name: 'Web development', url: 'posts/web/'),
-        new Tag(name: 'AngularJS', url: 'posts/angularjs/'),
-        new Tag(name: 'Angular', url: 'posts/angular/'),
-      ],
-      imageUrl: 'assets/images/angularjs.png',
-      url: 'posts/angularjs/why_still_angularjs/'),
-];
+//final posts = [
+//  new Post(
+//      id: 1,
+//      title: 'Flutter crash course',
+//      subtitle: 'The complete guide to Flutter',
+//      previewText:
+//          'This is a course I have developed for beginners to learn flutter basics to advance with Firebase',
+//      paragraphs: <Paragraph>[
+//        new Paragraph(
+//            text:
+//                "Hello everyone, let's learn awesome Flutter. As a introduction to this course ...."),
+//        new Paragraph(
+//            text:
+//                "Okay, what is flutter? it is a lightweight UI framework develop to build cross platform mobile application using single codebase...",
+//            imageUrl: 'assets/images/flutter/owel.png')
+//      ],
+//      createdOn: DateTime.now(),
+//      author: 'Asanka B.L.',
+//      writtenBy: 'Asanka B.L.',
+//      comments: <Comment>[],
+//      category: 'Mobile App development',
+//      tags: <Tag>[
+//        new Tag(name: 'Flutter', url: 'posts/flutter/'),
+//        new Tag(name: 'App development', url: 'posts/development/'),
+//        new Tag(name: 'Mobile', url: 'posts/mobile/'),
+//        new Tag(name: 'Dart', url: 'posts/dart/'),
+//      ],
+//      imageUrl: 'assets/images/flutter.png',
+//      url: 'www.google.com' //posts/flutter/flutter_crash_course/
+//      ),
+//  new Post(
+//      id: 2,
+//      title: 'AngularJS is what?',
+//      subtitle: 'What is AngularJS and why do we still using it',
+//      previewText:
+//          'In this blogpost I have talked about, why people still use AngularJS rather than Angular2+',
+//      paragraphs: <Paragraph>[
+//        new Paragraph(
+//            text:
+//                "Hello devs, do you guys have hard time of understanding what the hack is going on??"),
+//        new Paragraph(
+//            text: "Okay, This is how I tried to help you guys understand..",
+//            imageUrl: 'assets/images/angularjs/conf.png')
+//      ],
+//      createdOn: DateTime.now(),
+//      author: 'Asanka B.L.',
+//      writtenBy: 'Asanka B.L.',
+//      comments: <Comment>[],
+//      category: 'Web Development',
+//      tags: <Tag>[
+//        new Tag(name: 'Web development', url: 'posts/web/'),
+//        new Tag(name: 'AngularJS', url: 'posts/angularjs/'),
+//        new Tag(name: 'Angular', url: 'posts/angular/'),
+//      ],
+//      imageUrl: 'assets/images/angularjs.png',
+//      url: 'posts/angularjs/why_still_angularjs/'),
+//];
