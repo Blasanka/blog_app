@@ -1,6 +1,7 @@
-//import 'package:blog_app/json_parsing.dart';
+import 'package:blog_app/api/get_posts.dart';
+import 'package:blog_app/model/post.dart';
 import 'package:flutter/material.dart';
-import 'model/post.dart';
+
 import 'screens/singlepost_screen.dart';
 
 class BlogApp extends StatelessWidget {
@@ -12,7 +13,9 @@ class BlogApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: title,
       home: Scaffold(
-        appBar: AppBar(title: Text(title), ),
+        appBar: AppBar(
+          title: Text(title),
+        ),
         body: HomePage(),
       ),
     );
@@ -24,33 +27,37 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Post> _posts = posts;
 
   @override
   Widget build(BuildContext context) {
-
-
-    final i = 1;
-    List<String> _generateList() {
-      return List<String>.generate(20, (i) => "Hello $i");
-    }
-    return ListView(
-      children: _generateList().map((v) => Text(v)).toList(),//_posts.map(_buildPost).toList(),
+    return FutureBuilder<List<Post>>(
+        future: getPosts(),
+        builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListView(
+                  children: snapshot.data.map(_buildPost).toList()
+              ),
+            );
+          } else {
+            return Center(child: CircularProgressIndicator());
+          }
+        }
     );
   }
 
   Widget _buildPost(Post post) {
     return Padding(
       padding: const EdgeInsets.all(14.0),
-      child: ListTile(
+      child: ListTile( //TODO: create an ExpansionTile
         title: Text(
-          "",//post.title,
+            post.title,
           style: TextStyle(fontSize: 22.0)),
         subtitle: Text(
-          "f"//post.subtitle,
-          // getPosts(),
+          post.subtitle,
         ),
-        onTap: ()  {
+        onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => DetailedPostScreen(post)),

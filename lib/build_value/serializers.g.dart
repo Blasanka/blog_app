@@ -21,10 +21,11 @@ part of serializers;
 
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Post.serializer)
-      ..addBuilderFactory(const FullType(List, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(const FullType(List, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(const FullType(List, const [const FullType(String)]),
-          () => new ListBuilder<String>()))
+  ..addBuilderFactory(
+      const FullType(BuiltList, const [const FullType(Paragraph)]),
+          () => new ListBuilder<Paragraph>())..addBuilderFactory(
+      const FullType(BuiltList, const [const FullType(Comment)]),
+          () => new ListBuilder<Comment>())..addBuilderFactory(
+      const FullType(BuiltList, const [const FullType(Tag)]),
+          () => new ListBuilder<Tag>()))
     .build();

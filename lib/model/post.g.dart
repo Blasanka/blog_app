@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'json_parsing.dart';
+part of 'post.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
@@ -54,7 +54,7 @@ class _$PostSerializer implements StructuredSerializer<Post> {
         ..add('paragraphs')
         ..add(serializers.serialize(object.paragraphs,
             specifiedType:
-                const FullType(List, const [const FullType(String)])));
+            const FullType(BuiltList, const [const FullType(Paragraph)])));
     }
     if (object.createdOn != null) {
       result
@@ -85,7 +85,7 @@ class _$PostSerializer implements StructuredSerializer<Post> {
         ..add('comments')
         ..add(serializers.serialize(object.comments,
             specifiedType:
-                const FullType(List, const [const FullType(String)])));
+            const FullType(BuiltList, const [const FullType(Comment)])));
     }
     if (object.category != null) {
       result
@@ -98,7 +98,7 @@ class _$PostSerializer implements StructuredSerializer<Post> {
         ..add('tags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(List, const [const FullType(String)])));
+            const FullType(BuiltList, const [const FullType(Tag)])));
     }
     if (object.imageUrl != null) {
       result
@@ -144,10 +144,9 @@ class _$PostSerializer implements StructuredSerializer<Post> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'paragraphs':
-          result.paragraphs = serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(List, const [const FullType(String)]))
-              as List<String>;
+          result.paragraphs.replace(serializers.deserialize(value,
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(Paragraph)])) as BuiltList);
           break;
         case 'createdOn':
           result.createdOn = serializers.deserialize(value,
@@ -166,20 +165,19 @@ class _$PostSerializer implements StructuredSerializer<Post> {
               specifiedType: const FullType(int)) as int;
           break;
         case 'comments':
-          result.comments = serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(List, const [const FullType(String)]))
-              as List<String>;
+          result.comments.replace(serializers.deserialize(value,
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(Comment)])) as BuiltList);
           break;
         case 'category':
           result.category = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'tags':
-          result.tags = serializers.deserialize(value,
+          result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(String)]))
-              as List<String>;
+                  const FullType(BuiltList, const [const FullType(Tag)]))
+          as BuiltList);
           break;
         case 'imageUrl':
           result.imageUrl = serializers.deserialize(value,
@@ -206,7 +204,7 @@ class _$Post extends Post {
   @override
   final String previewText;
   @override
-  final List<String> paragraphs;
+  final BuiltList<Paragraph> paragraphs;
   @override
   final DateTime createdOn;
   @override
@@ -216,11 +214,11 @@ class _$Post extends Post {
   @override
   final int likes;
   @override
-  final List<String> comments;
+  final BuiltList<Comment> comments;
   @override
   final String category;
   @override
-  final List<String> tags;
+  final BuiltList<Tag> tags;
   @override
   final String imageUrl;
   @override
@@ -350,9 +348,13 @@ class PostBuilder implements Builder<Post, PostBuilder> {
   String get previewText => _$this._previewText;
   set previewText(String previewText) => _$this._previewText = previewText;
 
-  List<String> _paragraphs;
-  List<String> get paragraphs => _$this._paragraphs;
-  set paragraphs(List<String> paragraphs) => _$this._paragraphs = paragraphs;
+  ListBuilder<Paragraph> _paragraphs;
+
+  ListBuilder<Paragraph> get paragraphs =>
+      _$this._paragraphs ??= new ListBuilder<Paragraph>();
+
+  set paragraphs (ListBuilder<Paragraph> paragraphs) =>
+      _$this._paragraphs = paragraphs;
 
   DateTime _createdOn;
   DateTime get createdOn => _$this._createdOn;
@@ -370,17 +372,22 @@ class PostBuilder implements Builder<Post, PostBuilder> {
   int get likes => _$this._likes;
   set likes(int likes) => _$this._likes = likes;
 
-  List<String> _comments;
-  List<String> get comments => _$this._comments;
-  set comments(List<String> comments) => _$this._comments = comments;
+  ListBuilder<Comment> _comments;
+
+  ListBuilder<Comment> get comments =>
+      _$this._comments ??= new ListBuilder<Comment>();
+
+  set comments (ListBuilder<Comment> comments) => _$this._comments = comments;
 
   String _category;
   String get category => _$this._category;
   set category(String category) => _$this._category = category;
 
-  List<String> _tags;
-  List<String> get tags => _$this._tags;
-  set tags(List<String> tags) => _$this._tags = tags;
+  ListBuilder<Tag> _tags;
+
+  ListBuilder<Tag> get tags => _$this._tags ??= new ListBuilder<Tag>();
+
+  set tags (ListBuilder<Tag> tags) => _$this._tags = tags;
 
   String _imageUrl;
   String get imageUrl => _$this._imageUrl;
@@ -398,14 +405,14 @@ class PostBuilder implements Builder<Post, PostBuilder> {
       _title = _$v.title;
       _subtitle = _$v.subtitle;
       _previewText = _$v.previewText;
-      _paragraphs = _$v.paragraphs;
+      _paragraphs = _$v.paragraphs?.toBuilder();
       _createdOn = _$v.createdOn;
       _author = _$v.author;
       _writtenBy = _$v.writtenBy;
       _likes = _$v.likes;
-      _comments = _$v.comments;
+      _comments = _$v.comments?.toBuilder();
       _category = _$v.category;
-      _tags = _$v.tags;
+      _tags = _$v.tags?.toBuilder();
       _imageUrl = _$v.imageUrl;
       _url = _$v.url;
       _$v = null;
@@ -428,22 +435,41 @@ class PostBuilder implements Builder<Post, PostBuilder> {
 
   @override
   _$Post build() {
-    final _$result = _$v ??
-        new _$Post._(
-            id: id,
-            title: title,
-            subtitle: subtitle,
-            previewText: previewText,
-            paragraphs: paragraphs,
-            createdOn: createdOn,
-            author: author,
-            writtenBy: writtenBy,
-            likes: likes,
-            comments: comments,
-            category: category,
-            tags: tags,
-            imageUrl: imageUrl,
-            url: url);
+    _$Post _$result;
+    try {
+      _$result = _$v ??
+          new _$Post._(
+              id: id,
+              title: title,
+              subtitle: subtitle,
+              previewText: previewText,
+              paragraphs: _paragraphs?.build(),
+              createdOn: createdOn,
+              author: author,
+              writtenBy: writtenBy,
+              likes: likes,
+              comments: _comments?.build(),
+              category: category,
+              tags: _tags?.build(),
+              imageUrl: imageUrl,
+              url: url);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'paragraphs';
+        _paragraphs?.build();
+
+        _$failedField = 'comments';
+        _comments?.build();
+
+        _$failedField = 'tags';
+        _tags?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'Post', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
